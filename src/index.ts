@@ -103,6 +103,11 @@ const otherStats = {
 
 const propertyDescriptor = { writable: true, configurable: true };
 
+class FallbackToOldRealpathError extends Error {
+    public syscall = 'realpath';
+    public code = 'ENOMEM';
+}
+
 export function createGlobInterceptor(fs: GlobFileSystem) {
     const cache = new Proxy<Record<string, false | 'FILE' | string[]>>({}, {
         getOwnPropertyDescriptor() {
@@ -144,7 +149,12 @@ export function createGlobInterceptor(fs: GlobFileSystem) {
         getOwnPropertyDescriptor() {
             return propertyDescriptor;
         },
-        get(_, path: string) {
+        get(_, path) {
+            // enforce the use of the old realpath algorithm by throwing an error here
+            // 'fs.realpath' will think this is an error caused by the newer implementation of `realpathSync` and falls back to the old impl.
+            // fortunately 'glob' only passes absolute paths to 'realpath', therefore we can easily detect uses from Node's realpath implementation
+            if (typeof path !== 'string' || !/[/\\]/.test(path))
+                throw new FallbackToOldRealpathError();
             return fs.realpath(path);
         },
     });
