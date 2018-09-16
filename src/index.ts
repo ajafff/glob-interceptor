@@ -13,8 +13,8 @@ export interface GlobFileSystem {
 export interface NodeLikeFileSystem {
     statSync(path: string): { isDirectory(): boolean; };
     lstatSync(path: string): { isSymbolicLink(): boolean; isDirectory(): boolean; };
-    readdirSync(dir: string): string[];
-    realpathSync(path: string): string;
+    readdirSync(dir: string): Array<string | Uint8Array>;
+    realpathSync(path: string): string | Uint8Array;
 }
 
 export function convertNodeLikeFileSystem(fs: NodeLikeFileSystem): GlobFileSystem {
@@ -41,10 +41,13 @@ export function convertNodeLikeFileSystem(fs: NodeLikeFileSystem): GlobFileSyste
             }
         },
         readDirectory(dir) {
-            return fs.readdirSync(dir);
+            const dirents = fs.readdirSync(dir);
+            return (dirents.length === 0 || typeof dirents[0] === 'string')
+                ? <string[]>dirents
+                : dirents.map(String);
         },
         realpath(path) {
-            return fs.realpathSync(path);
+            return String(fs.realpathSync(path));
         }
     }
 }

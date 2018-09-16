@@ -7,7 +7,7 @@
     "dist/*.*"
   ],
   "scripts": {
-    "compile": "tsc -b .",
+    "compile": "tsc -p .",
     "test": "ava dist/test"
   },
   "repository": {
@@ -38,6 +38,6 @@
     "typescript": "~3.0.3"
   },
   "dependencies": {
-    "memfs": "^2.9.4"
+    "memfs": "^2.10.0"
   }
 }
