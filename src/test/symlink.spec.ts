@@ -1,10 +1,17 @@
-import test from "ava";
-import {Volume} from "memfs";
+import test from 'ava';
+import {Volume} from 'memfs';
 import * as glob from 'glob';
-import { createGlobInterceptor, convertNodeLikeFileSystem } from "..";
+import { createGlobInterceptor, convertNodeLikeFileSystem } from '..';
 
 test('globstar excludes symlink', (t) => {
-    const fs = Volume.fromJSON({'symlink/a.txt': 'I love tests', 'symlink/a/b.txt': 'I love tests', 'symlink/a/b/c.txt': 'I love tests'}, process.cwd());
+    const fs = Volume.fromJSON(
+        {
+            'symlink/a.txt': 'I love tests',
+            'symlink/a/b.txt': 'I love tests',
+            'symlink/a/b/c.txt': 'I love tests',
+        },
+        process.cwd(),
+    );
     fs.symlinkSync('../..', 'symlink/a/b/c');
     t.deepEqual(
         glob.sync('**', <any>{nodir: true, ...createGlobInterceptor(convertNodeLikeFileSystem(fs))}),
@@ -18,13 +25,13 @@ test('broken symlinks are treated as file', (t) => {
     const interceptor = createGlobInterceptor(convertNodeLikeFileSystem(fs));
     t.deepEqual(
         glob.sync('*/**', <any>{mark: true, ...interceptor}),
-        ['bar/', 'foo/','foo/bar/', 'foo/bar/baz.txt'],
+        ['bar/', 'foo/', 'foo/bar/', 'foo/bar/baz.txt'],
     );
 
     fs.unlinkSync('foo/bar/baz.txt');
     t.deepEqual(
         glob.sync('*/**', <any>{mark: true, ...interceptor}),
-        ['bar/', 'foo/','foo/bar/'],
+        ['bar/', 'foo/', 'foo/bar/'],
     );
 
     fs.rmdirSync('foo/bar');

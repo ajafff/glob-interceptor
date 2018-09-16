@@ -48,8 +48,8 @@ export function convertNodeLikeFileSystem(fs: NodeLikeFileSystem): GlobFileSyste
         },
         realpath(path) {
             return String(fs.realpathSync(path));
-        }
-    }
+        },
+    };
 }
 
 export function memoizeFileSystem(fs: GlobFileSystem): GlobFileSystem {
@@ -91,7 +91,7 @@ export function memoizeFileSystem(fs: GlobFileSystem): GlobFileSystem {
             }
             return result;
         },
-    }
+    };
 }
 
 const directoryStats = {
@@ -151,8 +151,10 @@ export function createGlobInterceptor(fs: GlobFileSystem) {
         },
         get(_, path) {
             // enforce the use of the old realpath algorithm by throwing an error here
-            // 'fs.realpath' will think this is an error caused by the newer implementation of `realpathSync` and falls back to the old impl.
-            // fortunately 'glob' only passes absolute paths to 'realpath', therefore we can easily detect uses from Node's realpath implementation
+            // 'fs.realpath' will think this is an error caused by the newer implementation of `realpathSync`
+            // and falls back to the old impl.
+            // fortunately 'glob' only passes absolute paths to 'realpath',
+            // therefore we can easily detect uses from Node's realpath implementation
             if (typeof path !== 'string' || !/[/\\]/.test(path))
                 throw new FallbackToOldRealpathError();
             return fs.realpath(path);

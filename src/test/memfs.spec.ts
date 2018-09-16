@@ -1,7 +1,7 @@
-import test from "ava";
-import {Volume} from "memfs";
+import test from 'ava';
+import {Volume} from 'memfs';
 import * as glob from 'glob';
-import { createGlobInterceptor, convertNodeLikeFileSystem } from "..";
+import { createGlobInterceptor, convertNodeLikeFileSystem } from '..';
 
 test('memfs', (t) => {
     const content = 'i love tests';

@@ -1,7 +1,7 @@
-import test from "ava";
-import {Volume} from "memfs";
+import test from 'ava';
+import {Volume} from 'memfs';
 import * as glob from 'glob';
-import { createGlobInterceptor, convertNodeLikeFileSystem } from "..";
+import { createGlobInterceptor, convertNodeLikeFileSystem } from '..';
 
 test('realpath', (t) => {
     const fs = Volume.fromJSON({'foo.txt': 'I love tests'}, '/');
