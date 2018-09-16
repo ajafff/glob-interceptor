@@ -2,6 +2,7 @@ import { test } from 'ava';
 import { convertNodeLikeFileSystem, createGlobInterceptor, memoizeFileSystem } from '..';
 import * as fs from 'fs';
 import * as glob from 'glob';
+import * as path from 'path';
 
 test('convertNodeLikeFileSystem', (t) => {
     t.deepEqual(
@@ -41,5 +42,13 @@ test('memoize returns consistent results', (t) => {
             'a/c/.gitkeep',
             'a/d/d.txt',
         ],
+    );
+    t.deepEqual(
+        glob.sync('{**,*,*/**}', <any>{cwd: 'fixtures', nodir: true, realpath: true, ...interceptor}),
+        expected.map((p) => path.resolve('fixtures', p)),
+    );
+    t.deepEqual(
+        glob.sync('{**,*,*/**}', <any>{cwd: 'fixtures', nodir: true, realpath: true, ...interceptor}),
+        expected.map((p) => path.resolve('fixtures', p)),
     );
 });
