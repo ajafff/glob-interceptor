@@ -12,7 +12,7 @@ export interface GlobFileSystem {
 
 export interface NodeLikeFileSystem {
     statSync(path: string): { isDirectory(): boolean; };
-    lstatSync(path: string): { isSymbolicLink(): boolean; };
+    lstatSync(path: string): { isSymbolicLink(): boolean; isDirectory(): boolean; };
     readdirSync(dir: string): string[];
     realpathSync(path: string): string;
 }
@@ -20,11 +20,18 @@ export interface NodeLikeFileSystem {
 export function convertNodeLikeFileSystem(fs: NodeLikeFileSystem): GlobFileSystem {
     return {
         isDirectory(path) {
+            let stats;
             try {
-                return fs.statSync(path).isDirectory();
+                stats = fs.lstatSync(path);
             } catch {
                 return;
             }
+            if (stats.isSymbolicLink()) {
+                try {
+                    stats = fs.statSync(path);
+                } catch {}
+            }
+            return stats.isDirectory();
         },
         isSymbolicLink(path) {
             try {
