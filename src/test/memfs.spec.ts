@@ -1,7 +1,7 @@
 import test from 'ava';
 import {Volume} from 'memfs';
 import * as glob from 'glob';
-import { createGlobInterceptor, convertNodeLikeFileSystem } from '..';
+import { createGlobInterceptor, fromNodeLikeFileSystem } from '..';
 
 test('memfs', (t) => {
     const content = 'i love tests';
@@ -20,13 +20,13 @@ test('memfs', (t) => {
     ];
     let fs = Volume.fromJSON(json, process.cwd());
     t.deepEqual(
-        glob.sync('**', <any>{nodir: true, ...createGlobInterceptor(convertNodeLikeFileSystem(fs))}),
+        glob.sync('**', <any>{nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         expected,
     );
 
     fs = Volume.fromJSON(json, '/foobar');
     t.deepEqual(
-        glob.sync('**', <any>{cwd: '/foobar', nodir: true, ...createGlobInterceptor(convertNodeLikeFileSystem(fs))}),
+        glob.sync('**', <any>{cwd: '/foobar', nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         expected,
     );
 });

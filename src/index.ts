@@ -4,7 +4,7 @@ export interface GlobFileSystem {
     isDirectory(path: string): boolean | undefined;
     /** Returns `true` if the specified `path` is a symlink, `false` in all other cases. */
     isSymbolicLink(path: string): boolean;
-    /** Get the entries of a directory as string array. */
+    /** Get the entries of a directory as string array. Will only be called on paths where `isDirectory` returns `true`*/
     readDirectory(dir: string): string[];
     /** Get the realpath of a given `path` by resolving all symlinks in the path. */
     realpath(path: string): string;
@@ -17,7 +17,7 @@ export interface NodeLikeFileSystem {
     realpathSync(path: string): string | Uint8Array;
 }
 
-export function convertNodeLikeFileSystem(fs: NodeLikeFileSystem): GlobFileSystem {
+export function fromNodeLikeFileSystem(fs: NodeLikeFileSystem): GlobFileSystem {
     return {
         isDirectory(path) {
             let stats;

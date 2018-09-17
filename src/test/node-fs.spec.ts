@@ -1,12 +1,12 @@
 import { test } from 'ava';
-import { convertNodeLikeFileSystem, createGlobInterceptor, memoizeFileSystem } from '..';
+import { fromNodeLikeFileSystem, createGlobInterceptor, memoizeFileSystem } from '..';
 import * as fs from 'fs';
 import * as glob from 'glob';
 import * as path from 'path';
 
 test('convertNodeLikeFileSystem', (t) => {
     t.deepEqual(
-        glob.sync('**', <any>{cwd: 'fixtures', nodir: true, ...createGlobInterceptor(convertNodeLikeFileSystem(fs))}),
+        glob.sync('**', <any>{cwd: 'fixtures', nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         [
             'a/a.txt',
             'a/b/b.txt',
@@ -17,7 +17,7 @@ test('convertNodeLikeFileSystem', (t) => {
 });
 
 test('memoize returns consistent results', (t) => {
-    const interceptor = createGlobInterceptor(memoizeFileSystem(convertNodeLikeFileSystem(fs)));
+    const interceptor = createGlobInterceptor(memoizeFileSystem(fromNodeLikeFileSystem(fs)));
     const expected = [
         'a/a.txt',
         'a/b/b.txt',
