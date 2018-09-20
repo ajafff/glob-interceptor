@@ -128,7 +128,7 @@ export function createGlobInterceptor(fs: GlobFileSystem) {
             return true;
         },
     });
-    const statCache = new Proxy<Record<string, any>>({}, {
+    const statCache = new Proxy<Record<string, { isDirectory(): boolean; } | false>>({}, {
         get(_, path: string) {
             switch (fs.isDirectory(path)) {
                 case true:
