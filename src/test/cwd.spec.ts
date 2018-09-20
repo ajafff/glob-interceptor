@@ -6,7 +6,7 @@ import { createGlobInterceptor, fromNodeLikeFileSystem } from '..';
 test('non-existent cwd', (t) => {
     const fs = Volume.fromJSON({}, '/');
     t.deepEqual(
-        glob.sync('**', <any>{cwd: '/foo', ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
+        glob.sync('**', {cwd: '/foo', ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         [],
     );
 });

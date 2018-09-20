@@ -6,7 +6,7 @@ import * as path from 'path';
 
 test('convertNodeLikeFileSystem', (t) => {
     t.deepEqual(
-        glob.sync('**', <any>{cwd: 'fixtures', nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
+        glob.sync('**', {cwd: 'fixtures', nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         [
             'a/a.txt',
             'a/b/b.txt',
@@ -25,16 +25,16 @@ test('memoize returns consistent results', (t) => {
         'a/d/d.txt',
     ];
     t.deepEqual(
-        glob.sync('**', <any>{cwd: 'fixtures', nodir: true, ...interceptor}),
+        glob.sync('**', {cwd: 'fixtures', nodir: true, ...interceptor}),
         expected,
     );
     t.deepEqual(
-        glob.sync('**', <any>{cwd: 'fixtures', nodir: true, ...interceptor}),
+        glob.sync('**', {cwd: 'fixtures', nodir: true, ...interceptor}),
         expected,
     );
 
     t.deepEqual(
-        glob.sync('**', <any>{cwd: 'fixtures', nodir: true, dot: true, ...interceptor}),
+        glob.sync('**', {cwd: 'fixtures', nodir: true, dot: true, ...interceptor}),
         [
             'a/a.txt',
             'a/b/b.txt',
@@ -44,11 +44,11 @@ test('memoize returns consistent results', (t) => {
         ],
     );
     t.deepEqual(
-        glob.sync('{**,*,*/**}', <any>{cwd: 'fixtures', nodir: true, realpath: true, ...interceptor}),
+        glob.sync('{**,*,*/**}', {cwd: 'fixtures', nodir: true, realpath: true, ...interceptor}),
         expected.map((p) => path.resolve('fixtures', p)),
     );
     t.deepEqual(
-        glob.sync('{**,*,*/**}', <any>{cwd: 'fixtures', nodir: true, realpath: true, ...interceptor}),
+        glob.sync('{**,*,*/**}', {cwd: 'fixtures', nodir: true, realpath: true, ...interceptor}),
         expected.map((p) => path.resolve('fixtures', p)),
     );
 });

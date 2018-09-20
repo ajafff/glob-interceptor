@@ -14,7 +14,7 @@ test('globstar excludes symlink', (t) => {
     );
     fs.symlinkSync('../..', 'symlink/a/b/c');
     t.deepEqual(
-        glob.sync('**', <any>{nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
+        glob.sync('**', {nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         ['symlink/a.txt', 'symlink/a/b.txt', 'symlink/a/b/c.txt'],
     );
 });
@@ -24,23 +24,23 @@ test('broken symlinks are treated as file', (t) => {
     fs.symlinkSync('foo/bar', 'bar');
     const interceptor = createGlobInterceptor(fromNodeLikeFileSystem(fs));
     t.deepEqual(
-        glob.sync('*/**', <any>{mark: true, ...interceptor}),
+        glob.sync('*/**', {mark: true, ...interceptor}),
         ['bar/', 'foo/', 'foo/bar/', 'foo/bar/baz.txt'],
     );
 
     fs.unlinkSync('foo/bar/baz.txt');
     t.deepEqual(
-        glob.sync('*/**', <any>{mark: true, ...interceptor}),
+        glob.sync('*/**', {mark: true, ...interceptor}),
         ['bar/', 'foo/', 'foo/bar/'],
     );
 
     fs.rmdirSync('foo/bar');
     t.deepEqual(
-        glob.sync('*/**', <any>{mark: true, ...interceptor}),
+        glob.sync('*/**', {mark: true, ...interceptor}),
         ['foo/'],
     );
     t.deepEqual(
-        glob.sync('*', <any>{mark: true, ...interceptor}),
+        glob.sync('*', {mark: true, ...interceptor}),
         ['bar', 'foo/'],
     );
 });

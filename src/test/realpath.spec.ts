@@ -8,11 +8,11 @@ test('realpath', (t) => {
     fs.symlinkSync('/foo.txt', '/bar.txt');
     const interceptor = createGlobInterceptor(fromNodeLikeFileSystem(fs));
     t.deepEqual(
-        glob.sync('*', <any>{cwd: '/', absolute: true, ...interceptor}),
+        glob.sync('*', {cwd: '/', absolute: true, ...interceptor}),
         ['/bar.txt', '/foo.txt'],
     );
     t.deepEqual(
-        glob.sync('*', <any>{realpath: true, cwd: '/', ...interceptor}),
+        glob.sync('*', {realpath: true, cwd: '/', ...interceptor}),
         ['/foo.txt'],
     );
 });

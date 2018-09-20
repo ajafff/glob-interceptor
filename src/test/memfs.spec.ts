@@ -20,13 +20,13 @@ test('memfs', (t) => {
     ];
     let fs = Volume.fromJSON(json, process.cwd());
     t.deepEqual(
-        glob.sync('**', <any>{nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
+        glob.sync('**', {nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         expected,
     );
 
     fs = Volume.fromJSON(json, '/foobar');
     t.deepEqual(
-        glob.sync('**', <any>{cwd: '/foobar', nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
+        glob.sync('**', {cwd: '/foobar', nodir: true, ...createGlobInterceptor(fromNodeLikeFileSystem(fs))}),
         expected,
     );
 });
