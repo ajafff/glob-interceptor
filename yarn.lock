@@ -149,52 +149,52 @@
     tslib "^1.8.1"
     tsutils "^2.24.0"
 
-"@fimbul/bifrost@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@fimbul/bifrost/-/bifrost-0.13.0.tgz#1efc506e5872046b93f9968fa479e682caa2220c"
-  integrity sha512-9M8gy7Xfs6rMhKb9/IJJIJb/s4s9/JB4VY2ZI1JW36ACD1+OyiqlapVywdHhBhuHt2NPGzUX4Nz08dSE+Dinsw==
+"@fimbul/bifrost@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@fimbul/bifrost/-/bifrost-0.15.0.tgz#f3a48dee3046681e926c1f970f0b1a67e29e088e"
+  integrity sha512-sHTwnwA9YhxcVEJkBlfKH1KLmGQGnNYPxk+09w5NnkXelYiiP8a5f351weYfxG0CUPLt1Fgkha20Y/9+jhjn/Q==
   dependencies:
-    "@fimbul/ymir" "^0.13.0"
+    "@fimbul/ymir" "^0.15.0"
     get-caller-file "^2.0.0"
     tslib "^1.8.1"
-    tsutils "^3.0.0"
+    tsutils "^3.1.0"
 
-"@fimbul/mimir@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@fimbul/mimir/-/mimir-0.14.0.tgz#6866595963734a5b5f56718dfec47509810cfe28"
-  integrity sha512-LBzXp4vKdA90nXXlQ6DT7fp55Mt9oQvoHt56R/YhWUFPyh1aLDjtGAzXkqrRb/rn1RIpZip7X7SpFrZ9PKCsQg==
+"@fimbul/mimir@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@fimbul/mimir/-/mimir-0.15.0.tgz#eb9af129fc5a89784b1a97c6df9d84ae3587e1dc"
+  integrity sha512-OkhjfeghoM5RQ25qT3DxNcs/PowymmT/nNlvKPmt/+QN+YQSb0/TnxjoCuwMhwlMe9acGwut4tg0SyJXXgcRiw==
   dependencies:
-    "@fimbul/ymir" "^0.13.0"
+    "@fimbul/ymir" "^0.15.0"
     chalk "^2.3.2"
-    debug "^3.1.0"
+    debug "^4.0.0"
     tslib "^1.8.1"
-    tsutils "^3.0.0"
+    tsutils "^3.1.0"
 
-"@fimbul/valtyr@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@fimbul/valtyr/-/valtyr-0.14.0.tgz#e65d876555074b1c32f86d1757b5289c56e627e1"
-  integrity sha512-fg+1Ih1TnRHM+rZ6mDKPvqlqsXMw2yWa3SNn/I2XBF+ESZ4H9EsBEGmWQJ3DhzBKuXh0IVMW17dzK72y5TRguQ==
+"@fimbul/valtyr@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@fimbul/valtyr/-/valtyr-0.15.0.tgz#1e2a71bce062bdfe8ddd9526c40c6ede6dd8ec22"
+  integrity sha512-Hg/FQEJwFb3vpULs0bgQV9q2FDWSCyvdNJuuDNw74rJyMpS3doZPWFHZFSZVjRAuivSOQg4Ek6/lef6EJNsMTw==
   dependencies:
-    "@fimbul/bifrost" "^0.13.0"
-    inversify "^4.10.0"
+    "@fimbul/bifrost" "^0.15.0"
+    inversify "^5.0.0"
     tslib "^1.8.1"
     tslint "^5.0.0"
-    tsutils "^3.0.0"
+    tsutils "^3.1.0"
 
-"@fimbul/wotan@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@fimbul/wotan/-/wotan-0.14.0.tgz#c79b4076c6cf2a02d77303afb2256491f729c9e9"
-  integrity sha512-GPUdiACiZMIq6yKyojO/BaY3sGmw7Z9m7mPcMiLqJlZ3I6ICBLTYPy7mbc9GW8xJDMRpEkielXngNXPArISspQ==
+"@fimbul/wotan@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@fimbul/wotan/-/wotan-0.15.0.tgz#2e90bb7c72b44fcb5fd31a4b5b45ff9239b39e83"
+  integrity sha512-IEwxyamdL2UJ1Ma6ovBaGXq6S/jf6a2HSEMYR0lc4utArawNxczXTIe9jUaqhWkI+l2iw9i1QFcipBYrNkeHhw==
   dependencies:
-    "@fimbul/mimir" "^0.14.0"
-    "@fimbul/ymir" "^0.13.0"
+    "@fimbul/mimir" "^0.15.0"
+    "@fimbul/ymir" "^0.15.0"
     bind-decorator "^1.0.11"
     chalk "^2.3.0"
-    debug "^3.1.0"
+    debug "^4.0.0"
     diff "^3.4.0"
     glob "^7.1.2"
     import-local "^2.0.0"
-    inversify "^4.10.0"
+    inversify "^5.0.0"
     is-negated-glob "^1.0.0"
     js-yaml "^3.10.0"
     json5 "^2.0.0"
@@ -202,9 +202,10 @@
     reflect-metadata "^0.1.12"
     resolve "^1.5.0"
     semver "^5.4.1"
+    stable "^0.1.8"
     to-absolute-glob "^2.0.2"
     tslib "^1.8.1"
-    tsutils "^3.0.0"
+    tsutils "^3.1.0"
 
 "@fimbul/ymir@^0.11.0":
   version "0.11.0"
@@ -215,15 +216,14 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@fimbul/ymir@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@fimbul/ymir/-/ymir-0.13.0.tgz#3ce9fd542decbda6f084766212502d995cc153cf"
-  integrity sha512-zSzyiIKaq6HrQLIP4eUTEDc7GUY8OiYUZ/ogiqT4v6W1sDIWpo6uQLqvLEa9A2J6Gue+wW51krw7ZvYQZxx07g==
+"@fimbul/ymir@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@fimbul/ymir/-/ymir-0.15.0.tgz#944c881b14fadf7b43d1ae00b445e42261bb407f"
+  integrity sha512-Ow0TfxxQ65vIktHcZyXHeDsGKuzJ9Vt6y77R/aOrXQXLMdYHG+XdbiUWzQbtaGOmNzYVkQfINiFnIdvn5Bn24g==
   dependencies:
-    inversify "^4.10.0"
+    inversify "^5.0.0"
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
-    tsutils "^3.0.0"
 
 "@ladjs/time-require@^0.1.4":
   version "0.1.4"
@@ -1460,6 +1460,13 @@ debug@^3.0.1, debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
+debug@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
+  integrity sha512-heNPJUJIqC+xB6ayLAMHaIrmN9HKa7aQO8MGqKpvCA+uJYVcvR6l5kgdrhRuwPFHU7P5/A1w0BjByPHwpfTDKg==
+  dependencies:
+    ms "^2.1.1"
+
 decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
@@ -2299,6 +2306,11 @@ inversify@^4.10.0:
   version "4.13.0"
   resolved "https://registry.yarnpkg.com/inversify/-/inversify-4.13.0.tgz#0ab40570bfa4474b04d5b919bbab3a4f682a72f5"
   integrity sha512-O5d8y7gKtyRwrvTLZzYET3kdFjqUy58sGpBYMARF13mzqDobpfBXVOPLH7HmnD2VR6Q+1HzZtslGvsdQfeb0SA==
+
+inversify@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/inversify/-/inversify-5.0.1.tgz#500d709b1434896ce5a0d58915c4a4210e34fb6e"
+  integrity sha512-Ieh06s48WnEYGcqHepdsJUIJUXpwH5o5vodAX+DK2JA/gjy4EbEcQZxw+uFfzysmKjiLXGYwNG3qDZsKVMcINQ==
 
 invert-kv@^1.0.0:
   version "1.0.0"
@@ -4303,6 +4315,11 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
+stable@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
+  integrity sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==
+
 stack-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.1.tgz#d4f33ab54e8e38778b0ca5cfd3b3afb12db68620"
@@ -4608,10 +4625,10 @@ tsutils@^2.24.0, tsutils@^2.27.0, tsutils@^2.27.2:
   dependencies:
     tslib "^1.8.1"
 
-tsutils@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.0.0.tgz#0c5070a17a0503e056da038c48b5a1870a50a9ad"
-  integrity sha512-LjHBWR0vWAUHWdIAoTjoqi56Kz+FDKBgVEuL+gVPG/Pv7QW5IdaDDeK9Txlr6U0Cmckp5EgCIq1T25qe3J6hyw==
+tsutils@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.1.0.tgz#9136fdbc347799941db4eb326af4dcb81454820e"
+  integrity sha512-rmGhespW+nZMtdkc4JJefYSjux2uCDZxCTLU+nu8gvm+gM+YT0W5XAygHxaeOwRAHZ+SoPdrovZmAlZ2a0KSlw==
   dependencies:
     tslib "^1.8.1"
 
