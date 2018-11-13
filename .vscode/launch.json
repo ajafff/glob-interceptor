@@ -13,7 +13,6 @@
           "dist/test/${fileBasenameNoExtension}.js"
         ],
         "skipFiles": [
-          "<node_internals>/**/*.js",
           "**/node_modules/tslib/**/*.js"
         ]
       }
