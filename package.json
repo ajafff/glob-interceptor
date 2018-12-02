@@ -1,6 +1,6 @@
 {
   "name": "glob-interceptor",
-  "version": "0.0.3s",
+  "version": "0.0.3",
   "description": "Bring your own file system for globbing by proxying the cache",
   "main": "dist/index",
   "files": [
