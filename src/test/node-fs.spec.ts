@@ -1,4 +1,4 @@
-import { test } from 'ava';
+import test from 'ava';
 import { fromNodeLikeFileSystem, createGlobInterceptor, memoizeFileSystem } from '..';
 import * as fs from 'fs';
 import * as glob from 'glob';
