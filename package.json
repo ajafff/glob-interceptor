@@ -37,8 +37,8 @@
   },
   "homepage": "https://github.com/ajafff/glob-interceptor#readme",
   "devDependencies": {
-    "@fimbul/valtyr": "^0.18.0",
-    "@fimbul/wotan": "^0.18.0",
+    "@fimbul/valtyr": "^0.19.0",
+    "@fimbul/wotan": "^0.19.0",
     "@types/glob": "^7.1.0",
     "@types/node": "^10.9.4",
     "ava": "^1.0.0",
