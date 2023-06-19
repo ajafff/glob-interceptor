@@ -39,8 +39,8 @@
   "devDependencies": {
     "@fimbul/valtyr": "^0.21.0",
     "@fimbul/wotan": "^0.21.0",
-    "@types/glob": "^7.1.0",
-    "@types/node": "^10.9.4",
+    "@types/glob": "^8.0.0",
+    "@types/node": "^18.0.0",
     "ava": "^2.0.0",
     "codecov": "^3.1.0",
     "glob": "7.1.6",
